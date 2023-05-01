@@ -2,7 +2,7 @@
 jQuery(function() {
     event_handler()
 
-    load_analysis(1)
+    load_analysis()
 })
 
 function event_handler(){
@@ -14,23 +14,21 @@ function event_handler(){
         var tab_id = $(this).attr('id')
         $(this).addClass('selected')
 
-        load_analysis(tab_id)
+        
+        //hide other analysis content
+        $(".inner_content").find(".data_content").hide()
+        $("#" + tab_id + "_content").show()
     })
 }
 
-function load_analysis(analysis) {
-    //hide other analysis content
-    $(".inner_content").find(".data_content").hide()
-    $("#" + analysis + "_content").show()
-
-    console.log("Loading analysis " + analysis)
+function load_analysis() {
+    console.log("Getting data...")
     get_data(analysis).then(function(response){
         if (response.contains("error")) {
             console.log("ERROR: " + response)
         }
         else {
             console.log(response)
-
         }
     })
 }
@@ -38,8 +36,8 @@ function load_analysis(analysis) {
 function get_data(analysis) {
     return new Promise(function(resolve) {
         $.ajax({
-            url: '../../nfl_injury_stats.py',
-            dataType: 'text',
+            url: 'python/nfl_injury_stats.py',
+            dataType: 'json',
             type: 'POST',
             data: {email_id: email_id},
             success: function (response, status) {
