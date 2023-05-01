@@ -15,18 +15,55 @@
 
 </head>
 <body class="nfl">
-    <div class="title text-unselectable">NFL Injury Analysis</div>
+    <div class="text-unselectable football_text">NFL Injury Analysis</div>
     <div class="subtitle">By: Alexander Fisher, Pankati Patel, and Eric Landaverde</div>
     <div class="content">
-        <div class="tab_list">
-            <div class="tab selected text-unselectable" id="1">Analysis 1</div>
-            <div class="tab text-unselectable" id="2">Analysis 2</div>
-            <div class="tab text-unselectable" id="3">Analysis 3</div>
+
+        <div class="master_tab_list">
+            <div class="tab selected text-unselectable" id="1">Analyses</div>
+            <div class="tab unselected text-unselectable" id="2">About</div>
         </div>
-        <div class="inner_content">
-            <div class="data_content" id="1_content">Analysis content 1</div>
-            <div class="data_content" id="2_content">Analysis content 2</div>
-            <div class="data_content" id="3_content">Analysis content 3</div>
+
+        <div id="master_content_1" class="master_content">
+           
+            <div class="analyses_tab_list">
+                <div class="tab selected text-unselectable" id="1">Max Speed</div>
+                <div class="tab text-unselectable" id="2">Play Length</div>
+                <div class="tab text-unselectable" id="3">Field Type</div>
+            </div>
+
+            <div class="data_content" id="1_content">
+                <div class="data_grid">
+                    <div class="chart"></div>
+                    <div class="analysis"></div>
+                </div>
+            </div>
+
+            <div class="data_content" id="2_content">
+                <div class="data_grid">
+                    <div class="chart"></div>
+                    <div class="analysis"></div>
+                </div>
+            </div>
+
+            <div class="data_content" id="3_content">
+                <div class="data_grid">
+                    <div class="chart"></div>
+                    <div class="analysis"></div>
+                </div>
+            </div>
+
+        </div>
+        <div id="master_content_2" class="master_content">
+
+            <div class="about_content">
+                This project is an example of how data mining can be used to obtain useful knowledge taken from trends or correlations of a large dataset. The data mining techniques used for this project were:
+                <b>extract, transform and load (ETL), pearson correlation, boxplots, and chi-squared stats.</b><br><br>
+                The dataset used for this project was taken from the Kaggle competition: <a href="https://www.kaggle.com/competitions/nfl-playing-surface-analytics/data?select=PlayList.csv">NFL 1st and Future - Analytics</a><br>
+                Below are the first five records of each of the three tables supplied in this dataset, which were used throughout the project.<br><br>
+                <div class="dataset_info" id="dataset_info"></div>
+            </div>
+
         </div>
     </div>
 
