@@ -187,3 +187,7 @@
     max-width:100%;
     overflow:scroll;
 }
+
+.analysis {
+    text-align:left;
+}

@@ -83,9 +83,16 @@ function load_max_speed(max_speed) {
 
     // print analysis of data
     var analysis_html = `
-        <b>Null hypothesis:</b> There is no correlation between max speed of a player during a play and rate of injury.<br>
-        <b>Correlation coefficient:</b> ${analysis.correlation_coefficient}<br>
-        <b>p_value:</b> ${analysis.p_value} <br><br>
+        <b>Figure 1:</b> Max speed of player during injury and non-injury causing plays<br><br>
+
+        <b>X-axis:</b> Max speed<br>
+        <b>Y-axis:</b> Number of plays<br><br>
+        
+        <b>Correlation Coefficient:</b> ${analysis.correlation_coefficient}<br>
+        P-Value: ${analysis.p_value}<br><br>
+
+        <b>Null hypothesis:</b> There is no correlation between max speed of a player during a play and rate of injury.<br><br>
+       
         <b>Conclusion:</b> Because the p-value is less than the significance value of 0.05,
         we can accept the alternative hypothesis that there is a correlation between max speed
         and rate of injury.
@@ -104,9 +111,14 @@ function load_play_length(play_length) {
 
     // print analysis of data
     var analysis_html = `
-        <b>Median play length for injury-causing plays:</b> ${analysis.median_injured}<br>
-        <b>Median play length for non-injury plays:</b> ${analysis.median_noninjured} <br><br>
-        <b>Conclusion:</b> ...
+        <b>Figure 2:</b> Play length of injury and non-injury causing plays<br><br>
+
+        <b>X-axis:</b> Injury or Non-injury play<br>
+        <b>Y-Axis:</b> Play Length<br><br>
+        
+        <b>Median Injured Players:</b> ${analysis.median_injured.toFixed(2)}<br>
+        <b>Median Non-Injured Players:</b> ${analysis.median_noninjured.toFixed(2)}<br><br>
+    
     `
     $("div#2_content > .data_grid > .analysis").html(analysis_html)
 }
@@ -121,9 +133,17 @@ function load_field_type(field_type) {
 
     // print analysis of data
     var analysis_html = `
-        <b>Null hypothesis:</b> There is no correlation between field type and rate of injury.<br>
+        <b>Figure 3:</b> Expected and observed distribution of field types for injury-causing plays<br><br>
+
+        <b>X-axis:</b> Field Type<br>
+        <b>Y-axis:</b> Number of plays<br><br>
+        
         <b>Critical value:</b> ${analysis.critical_value}<br>
-        <b>p_value:</b> ${analysis.p_value} <br><br>
+        <b>Chi-squared value:</b> 7.374364<br>
+        <b>P-Value:</b> 0.00661602<br>${analysis.p_value}<br><br>
+    
+        <b>Null hypothesis:</b> There is no correlation between field type and rate of injury.<br><br>
+        
         <b>Conclusion:</b> Because the p-value is less than the significance value of 0.05,
         we can accept the alternative hypothesis that there is a correlation between field type 
         and rate of injury.
