@@ -16,50 +16,80 @@
     margin-top:1vh;
     text-align:center;
     font-family:fantasy;
-    font-size:80px;
-
-    color:brown;
-    text-shadow: 0px 15px rgba(0,0,0,0.5);
+    font-size:10vh;
     z-index:-1;
     padding-bottom:1vh;
 }
 
+.football_text {
+    text-align:center;
+    font-size: 10vh;
+    font-family:fantasy;
+    font-weight: 800;
+    text-transform: uppercase;
+    color:brown;
+    text-shadow: 0px 10px rgba(0,0,0,1);
+    /*background: url(../_assets/football-texture.jpg) 0 0 / cover no-repeat;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;*/
+ }
+
 .subtitle {
     text-align:center;
     font-family:monospace;
-    font-size:30px;
+    font-size:3vh;
     font-weight:bolder;
     color:whitesmoke;
-    text-shadow: 0px 10px rgba(0,0,0,0.5);
+    text-shadow: 0px 3px rgba(0,0,0,1);
     z-index:-1;
-    padding-bottom:2vh;
 }
 
 
 .content {
+    position:absolute;
+    top:19vh;
     z-index:1;
     /* margin */
-    
+    height: 75vh;
+    max-height: 75vh;
+    width: 80vw;
     margin-left:10vw;
     margin-right:10vw;
 }
 
-.inner_content {
+#master_content_1 {
     /* border */
-    border-left:5px solid;
-    border-right:5px solid;
-    border-bottom:5px solid;
-    border-color:black;
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    background-color:rgb(255, 220, 146);
-    box-shadow: 0px 15px rgba(0,0,0,0.5);
+    position:absolute;
+    height:calc(100% - 3em);
+    width:100%;
+    margin-top:3em;
+    z-index:1;
 }
 
-.tab_list {
+#master_content_2 {
+    /* border */
+    position:absolute;
+    height:calc(100% - 3em);
+    width:100%;
+    margin-top:3em;
+    z-index:1;
+}
+
+.analyses_tab_list {
+    position:absolute;
     display:grid;
     grid-template-columns:repeat(3, 1fr);
-    box-shadow: 0px 15px rgba(0,0,0,0.5);
+    z-index:1;
+    width: 100%;
+}
+
+.master_tab_list {
+    position: absolute;
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    z-index:-1;
+    top:0%;
+    width: 100%;
 }
 
 .tab {
@@ -72,8 +102,16 @@
     border-top-left-radius:20px;
     border-top-right-radius:20px;
     background-color:rgb(216, 173, 109);
-    padding-top:10px;
-    padding-bottom:10px;
+    line-height:1.5;
+    padding-top:0.75em;
+    padding-bottom:0.75em;
+
+    font-family:'Courier New', Courier, monospace;
+    font-weight:bolder;
+}
+
+.master_tab_list > .tab {
+    padding-bottom:3.75em;
 }
 
 .selected {
@@ -91,9 +129,61 @@
 }
 
 .data_content {
+    margin-top:3em;
+
     text-align: center;
     padding-top:50px;
     padding-bottom:50px;
     padding-left:50px;
     padding-right:50px;
+
+    border-left:5px solid;
+    border-right:5px solid;
+    border-bottom:5px solid;
+    border-color:black;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color:rgb(255, 220, 146);
+    box-shadow: 0px 15px rgba(0,0,0,0.5);
+
+    height:calc(100%-9em);
+    max-height:calc(100% - 9em);
+}
+
+.about_content {
+    margin-top:0em;
+
+    text-align: left;
+    padding-top:50px;
+    padding-bottom:50px;
+    padding-left:50px;
+    padding-right:50px;
+
+    border-left:5px solid;
+    border-right:5px solid;
+    border-bottom:5px solid;
+    border-color:black;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color:rgb(255, 220, 146);
+    box-shadow: 0px 15px rgba(0,0,0,0.5);
+
+    height:calc(100% - 6em);
+    max-height:calc(100% - 6em);
+    overflow:scroll;
+}
+
+.data_grid {
+    display:grid;
+    grid-template-columns: 60% 40%;
+    grid-column-gap: 20px; /* Adds a 20px gap between columns */
+}
+
+.chart {
+    max-height:calc(85% - 100px);
+}
+
+.chart > img {
+    max-width:100%;
+    overflow:scroll;
 }
