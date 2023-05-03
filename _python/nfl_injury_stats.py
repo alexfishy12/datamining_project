@@ -179,12 +179,12 @@ import scipy.stats as stats
 # Create a binary variable indicating if the play caused an injury or not
 injury = [1] * len(injury_max_speeds) + [0] * len(non_injury_max_speeds)
 
-# Perform the Pearson correlation test
+# Perform the Pearson correlation test (~75 samples each category)
 correlation, p_value = stats.pearsonr(injury, np.concatenate((injury_max_speeds, non_injury_max_speeds)))
 
 
 json_response['analyses']['max_speed'] = {"correlation_coefficient": correlation, "p_value": p_value}
-
+S
 
 # ### Conclusion:
 # #### Because the p-value is below the significance value of 0.05, we can accept the alternative hypothesis that there is a correlation between a player's max speed during a play and the probability of an injury occuring.
@@ -247,10 +247,8 @@ population_field_types_ratio = population_table / len(population_field_types)
 observed = injury_table
 expected = population_field_types_ratio * len(injury_field_types)
 
-
+# expected (5000 records) and observed (~75 records)
 chi_squared_stat = (((observed-expected)**2)/expected).sum()
-
-
 crit = stats.chi2.ppf(q = 0.95, # Find the critical value for 95% confidence
                      df = 1) # DF = number of variable categories - 1
 
